@@ -7,6 +7,6 @@ spec:
   - name: nginx
     image: nginx 
     ports:
-     - container_port: 80
+     - containerport: 80
 
 
