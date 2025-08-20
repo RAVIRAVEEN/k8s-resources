@@ -6,6 +6,6 @@ spec:
     containers:
     - name : nginx 
       image : nginx  
-    - name: alpha linux
+    - name: alphalinux
       image: almalinux:latest
       command: [ "sleep" , '300']
