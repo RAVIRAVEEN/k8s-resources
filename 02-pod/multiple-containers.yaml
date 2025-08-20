@@ -5,7 +5,7 @@ name: multiple-containers
 spec:
     containers:
     - name : nginx 
-      image : nginx
-      
-    - nane: alpha linux
-      image: alpha linux
+      image : nginx  
+    - name: alpha linux
+      image: alpha linux:8
+      command: [ "sleep" , '300']
