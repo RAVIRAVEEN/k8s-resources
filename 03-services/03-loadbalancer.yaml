@@ -1,5 +1,5 @@
-apiVersion:
-kind: pod
+apiVersion: v1
+kind: Pod
 metadata:
   name: nodeport
   labels:
@@ -7,10 +7,10 @@ metadata:
     demo: service
 spec:
   containers:
-   - name: nginx
-     image: nginx
-     port:
-       - containerPort: 80
+  - name: nginx
+    image: nginx:stable
+    ports:
+      - containerPort: 80
 
 ---
 
@@ -19,7 +19,7 @@ kind: Service
 metadata:
   name:  nodeport
 spec:
-  type: loadbalancer
+  type: LoadBalancer
   selector:
     app: nginx
     demo: service
