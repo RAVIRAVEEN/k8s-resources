@@ -1,5 +1,5 @@
 apiVersion:
-kind: pod
+kind: Pod
 metadata:
   name: my-service
   labels:
