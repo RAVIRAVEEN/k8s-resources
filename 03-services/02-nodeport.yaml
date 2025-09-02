@@ -1,7 +1,7 @@
-apiVersion:
+apiVersion: v1
 kind: pod
 metadata:
-  name: nodeport
+  name: nodeport-1
   labels:
     app: nginx
     demo: service
@@ -17,7 +17,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name:  nodeport
+  name:  nodeport-1
 spec:
   type: nodeport
   selector:
