@@ -10,8 +10,8 @@ spec:
       - containerPort: 80
     env: 
       - name: name-1
-         valueFrom:
-            configMapKeyRef:
+        valueFrom:
+          configMapKeyRef:
               name: config-demo         # The ConfigMap this value comes from.
               key: name # The key to fetch.
       - name: name-2
