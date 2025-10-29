@@ -32,8 +32,8 @@ metadata:
     matchLabels:
       k8s-app: filebeat
     template:
-    metadata:
-      labels:
+      metadata:
+       labels:
         k8s-app: filebeat
     spec:
       containers:
