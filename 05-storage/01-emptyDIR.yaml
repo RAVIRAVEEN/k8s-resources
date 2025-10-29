@@ -31,32 +31,32 @@ metadata:
   selector:
     matchLabels:
       k8s-app: filebeat
-    template:
+  template:
       metadata:
        labels:
         k8s-app: filebeat
-    spec:
-      containers:
-      - name: nginx
-        image: nginx
-        ports:
-        - containerPort: 80
-        volumeMounts:
-         name: nginx-logs
-         mountPath: /var/log/nginx/access.log 
-      - name: filebeat-sidecar
-        image: docker.elastic.co/beats/filebeat:7.12.0
-        volumeMounts:
-        -  name: nginx-logs
-           mountPath: /var/log/nginx/access.log
-        -  name: filebeat-config
-           mountPath: /usr/share/filebeat/filebeat.yml
-           subPath: filebeat.yml
-      volumes:
-      - name: nginx-logs
-        emptyDir: {}
-      - name: filebeat-config
-        configMap:
+      spec:
+       containers:
+       - name: nginx
+         image: nginx
+         ports:
+         - containerPort: 80
+         volumeMounts:
+          name: nginx-logs
+          mountPath: /var/log/nginx/access.log 
+       - name: filebeat-sidecar
+         image: docker.elastic.co/beats/filebeat:7.12.0
+         volumeMounts:
+         -  name: nginx-logs
+            mountPath: /var/log/nginx/access.log
+         -  name: filebeat-config
+            mountPath: /usr/share/filebeat/filebeat.yml
+            subPath: filebeat.yml
+       volumes:
+       - name: nginx-logs
+         emptyDir: {}
+       - name: filebeat-config
+         configMap:
             name: filebeat-config
             items:
               - key: filebeat.yml
