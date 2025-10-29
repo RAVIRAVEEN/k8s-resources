@@ -27,16 +27,19 @@ kind: Deployment
 metadata:
   name: filebeat-nginx
   labels:
-    k8s-app: filebeat
+    app: nginx
+    demo: deployment
 spec:    
   replicas: 2
   selector:
     matchLabels:
-      k8s-app: filebeat
+      app: nginx
+      demo: deployment
   template:
       metadata:
        labels:
-        k8s-app: filebeat
+        app: nginx
+        demo: deployment
       spec:
        containers:
        - name: nginx
