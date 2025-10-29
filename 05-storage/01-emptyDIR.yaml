@@ -10,13 +10,20 @@ data:
       modules:
         usr/share/filebeat/modules.d/*.yml
         reload.enabled: true
-     - module: nginx
+       modules:
+      - module: nginx
         access:
-         enabled: true
-         var.paths: ["/var/log/*nginx-access.log"] # Example for specific NGINX access logs
-       error:
-         enabled: true
-         var.paths: ["/var/log/*nginx-error.log"] # Example for specific
+          var.paths: ["/var/log/nginx/access.log*"]
+        error:
+          var.paths: ["/var/log/nginx/error.log*"]
+
+    #  - module: nginx
+    #     access:
+    #      enabled: true
+    #      var.paths: ["/var/log/*nginx-access.log"] # Example for specific NGINX access logs
+    #    error:
+    #      enabled: true
+    #      var.paths: ["/var/log/*nginx-error.log"] # Example for specific
      output.elasticsearch:
        hosts: ["elasticsearch:9200"]  
 
