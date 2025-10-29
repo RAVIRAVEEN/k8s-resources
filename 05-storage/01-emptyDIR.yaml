@@ -16,15 +16,7 @@ data:
           var.paths: ["/var/log/nginx/access.log*"]
         error:
           var.paths: ["/var/log/nginx/error.log*"]
-
-    #  - module: nginx
-    #     access:
-    #      enabled: true
-    #      var.paths: ["/var/log/*nginx-access.log"] # Example for specific NGINX access logs
-    #    error:
-    #      enabled: true
-    #      var.paths: ["/var/log/*nginx-error.log"] # Example for specific
-     output.elasticsearch:
+      output.elasticsearch:
        hosts: ["elasticsearch:9200"]  
 
 ---
